@@ -34,7 +34,10 @@ export default function visit(ast: any, expected: ?(string|string[])): any {
   for (let [valueType, getValue] of Object.entries(ValueTypes)) {
     if (ast.type === valueType) {
       // $FlowFixMe: Add 'Value' type to Value getters
-      return getValue(ast, props);
+      const node = new getValue(ast, props);
+      node.codegen(props);
+
+      return node;
     }
   }
 
