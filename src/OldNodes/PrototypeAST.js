@@ -12,7 +12,12 @@ export default class PrototypeAST implements ExprAST {
   isOperator: boolean;
   precedence: number;
 
-  constructor(name: string, args: string[], isOperator: boolean = false, precedence: number = 0) {
+  constructor(
+    name: string,
+    args: string[],
+    isOperator: boolean = false,
+    precedence: number = 0
+  ) {
     this.name = name;
     this.args = args;
     this.isOperator = isOperator;

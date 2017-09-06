@@ -1,15 +1,12 @@
 // @flow
-import assert from 'assert';
+import ASTNode from "./ASTNode";
 import * as llvm from "llvm-node";
-import visit from '../visit';
-import NumberExprAST from "../Nodes/NumberExprAST";
+import visit from "../visit";
 
-export default (ast: any, props: any): any => {
-  assert(ast.type === "Program");
-
-  ast.body.forEach(node => {
-    visit(node);
-  });
-
-  return;
-};
+export default class Program extends ASTNode {
+  codegen(props: any) {
+    this.ast.body.forEach(node => {
+      visit(node);
+    });
+  }
+}

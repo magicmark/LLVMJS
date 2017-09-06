@@ -23,7 +23,11 @@ export type Props = {
 };
 
 export default class ASTNode {
+  llvmValue: ?any;
+  ast: any;
+
   constructor(ast: any) {
     assertASTNodeType(ast, this.constructor.name);
+    this.ast = ast;
   }
 }

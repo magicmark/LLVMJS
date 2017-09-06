@@ -1,11 +1,10 @@
 // @flow
-import type { ASTNode } from "./ASTNode";
+import ASTNode from "./ASTNode";
 import * as llvm from "llvm-node";
 import visit from "../visit";
-import VariableExprAST from "../Nodes/VariableExprAST";
 
-export class Identifier extends ASTNode {
-  codegen(props) {
+export default class Identifier extends ASTNode {
+  codegen(props: any) {
     const val = props.namedValues[this.ast.name];
     if (!val) {
       throw "could not find " + this.ast.name;
